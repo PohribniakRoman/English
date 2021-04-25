@@ -68,8 +68,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-width: 40vw;
-            height: 40vh;
+            min-width: 55vw;
+            min-height: 400px;
+            height: 50vh;
             position: relative;
             background-color: #000b18;
             &::before {
@@ -105,9 +106,9 @@
         &::before {
             content: "";
             position: absolute;
-            margin-left: -70%;
-            width: 30vw;
-            height: 100vh;
+            margin-left: -120%;
+            width: 200%;
+            height: 10000px;
             transform: rotate(25deg);
             background: linear-gradient(90deg, #00dbf8, #012c57);
         }

@@ -17,7 +17,13 @@ export default function AddWords() {
           className="add-words"
           onSubmit={(event) => {
             event.preventDefault();
-            console.log(translation, word, explaining);
+            fetch("http://localhost:5000/api/add-word",{
+              method:"POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body:JSON.stringify({translation, word, explaining})
+            })
             setWord("");
             setTranslation("");
             setExplaining("");
@@ -58,7 +64,7 @@ export default function AddWords() {
           value={explaining}
           placeholder="Explaining"
           required
-          onInput={(event) => {
+          onChange={(event) => {
             setExplaining(event.target.value);
           }}
           cols="30"
