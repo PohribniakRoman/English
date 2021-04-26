@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   useEffect(() => {
     async function getWords() {
-      const resp = await (await fetch("http://localhost:5000/api/get-all-words")).json();
+      const resp = await (await fetch("https://english-words-server.herokuapp.com/api/get-all-words")).json();
       console.log(resp);
       updateWords(resp.list);
     }
@@ -15,7 +15,7 @@ export default function Home() {
     return null;
   }
   return (
-    <div>
+    <div className="home">
       <Link to="/add-words">Add words</Link>
         <ul>
             {words.map(word=>{

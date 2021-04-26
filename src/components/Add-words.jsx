@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router";
 
 export default function AddWords() {
   const [word, setWord] = useState("");
   const [translation, setTranslation] = useState("");
   const [explaining, setExplaining] = useState("");
   const [isOpen, setOpen] = useState(false);
+  const history = useHistory();
   return (
     <div className="add-words__wrapper">
       <span>
@@ -17,16 +19,17 @@ export default function AddWords() {
           className="add-words"
           onSubmit={(event) => {
             event.preventDefault();
-            fetch("http://localhost:5000/api/add-word",{
-              method:"POST",
+            fetch("https://english-words-server.herokuapp.com/api/add-word", {
+              method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
-              body:JSON.stringify({translation, word, explaining})
-            })
+              body: JSON.stringify({ translation, word, explaining }),
+            });
             setWord("");
             setTranslation("");
             setExplaining("");
+            history.push("/");
           }}
         >
           <h1>Create new entry!</h1>
