@@ -19,7 +19,7 @@ export default function Home() {
       <Link to="/add-words">Add words</Link>
         <ul>
             {words.map(word=>{
-                return <li key={word.word}>{word.word}-{word.translation}</li>
+                return <li key={word.word}><p>{word.word}</p>-<div>{word.translation}</div></li>
             })}
         </ul>
     </div>
